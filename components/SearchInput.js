@@ -1,29 +1,29 @@
-import React from 'react'
-import { StyleSheet, TextInput, View } from 'react-native'
+import React from 'react';
+import {StyleSheet, TextInput, View} from 'react-native';
 
 export default class SearchInput extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       text: '',
-    }
+    };
   }
 
   handleSubmitEditing = () => {
-    const { onSubmit } = this.props
-    const { text } = this.state
-    if (!text) return
-    onSubmit(text)
-    this.setState({ text: '' })
-  }
+    const {onSubmit} = this.props;
+    const {text} = this.state;
+    if (!text) return;
+    onSubmit(text);
+    this.setState({text: ''});
+  };
 
-  handleChangeText = (text) => {
-    this.setState({ text: text })
-  }
+  handleChangeText = text => {
+    this.setState({text: text});
+  };
 
   render() {
-    const { placeholder } = this.props
-    const { text } = this.state
+    const {placeholder} = this.props;
+    const {text} = this.state;
 
     return (
       <View style={styles.container}>
@@ -39,7 +39,7 @@ export default class SearchInput extends React.Component {
           onSubmitEditing={this.handleSubmitEditing}
         />
       </View>
-    )
+    );
   }
 }
 
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
     flex: 1,
     color: 'white',
   },
-})
+});
