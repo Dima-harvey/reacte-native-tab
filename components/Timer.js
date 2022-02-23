@@ -31,7 +31,7 @@ export default Timer = () => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        setSurvivingSecunds(survivingsecunds => survivingSecunds + 1);
+        setSurvivingSecunds(survivingSecunds => survivingSecunds + 1);
       }, 1000);
     } else if (!isActive && survivingSecunds !== 0) {
       clearInterval(interval);
