@@ -4,8 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import Weather from './components/Weather';
-import Timer from './components/Timer';
+import Weather from '~/components/Weather';
+import Timer from '~/components/Timer';
 
 const Tab = createBottomTabNavigator();
 
