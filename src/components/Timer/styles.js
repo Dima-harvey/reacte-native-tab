@@ -1,34 +1,34 @@
 import {StyleSheet} from 'react-native';
-import theme from 'src/theme/theme';
+import theme from '~/theme';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.GREEN_COLOR,
+    backgroundColor: theme.colors.green,
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
     width: 200,
     height: 100,
-    borderRadius: theme.BORDER_RADIUS_SMALL,
+    borderRadius: theme.sizeBorderRadius.m,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonText: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    color: theme.LIME_COLOR,
+    fontSize: theme.FontSize.m,
+    color: theme.colors.lime,
   },
   timerText: {
-    color: theme.WHITE_COLOR,
-    fontSize: theme.FONT_SIZE_LARGE,
-    marginBottom: theme.MARGIN_SIZE_SMALL,
+    color: theme.colors.white,
+    fontSize: theme.FontSize.l,
+    marginBottom: theme.sizeMargin.m,
   },
   buttonReset: {
-    marginTop: theme.MARGIN_SIZE_SMALL,
-    borderColor: theme.ORANGE_COLOR,
+    marginTop: theme.sizeMargin.m,
+    borderColor: theme.colors.orange,
   },
   buttonTextReset: {
-    color: theme.ORANGE_COLOR,
+    color: theme.colors.orange,
   },
 });

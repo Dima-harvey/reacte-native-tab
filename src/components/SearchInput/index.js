@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
 import {TextInput, View} from 'react-native';
 
-import {styles} from './styles';
+import {styles} from '~/components/SearchInput/styles';
 
-export default SearchInput = props => {
-  const {placeholder} = props;
+export default SearchInput = ({ placeholder, onSubmit }) => {
   const [text, setText] = useState('');
 
   const handleSubmitEditing = () => {
-    const {onSubmit} = props;
     if (!text) return;
     onSubmit(text);
     setText('');
