@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  Text,
   KeyboardAvoidingView,
   View,
   ImageBackground,
@@ -8,10 +7,12 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {styles} from './styles';
+import {styles} from '~/components/Weather/styles';
 import SearchInput from '~/components/SearchInput';
+import Loading from '~/components/Loading';
 import {fetchLocationId, fetchWeather} from '~/utils/api';
 import getImageForWeather from '~/utils/getImageForWeather';
+
 
 export default Weather = () => {
   const [loading, setLoading] = useState(false);
@@ -32,7 +33,7 @@ export default Weather = () => {
       setWeather(weather);
       setTemperature(temperature);
     } catch (e) {
-      setError(false);
+      setError(true);
       setLoading(false);
     }
   };
@@ -46,32 +47,17 @@ export default Weather = () => {
         imageStyle={styles.image}>
         <View style={styles.detailsContainer}>
           <ActivityIndicator animating={loading} color="white" size="large" />
-          {!loading && (
-            <View>
-              {error && (
-                <Text style={[styles.smallText, styles.textStyle]}>
-                  Could not load weather, please try a different city.
-                </Text>
-              )}
-              {!error && (
-                <View>
-                  <Text style={[styles.largeText, styles.textStyle]}>
-                    {location}
-                  </Text>
-                  <Text style={[styles.smallText, styles.textStyle]}>
-                    {weather}
-                  </Text>
-                  <Text style={[styles.largeText, styles.textStyle]}>
-                    {`${Math.round(temperature)}°`}
-                  </Text>
-                </View>
-              )}
-              <SearchInput
-                placeholder="Search any city"
-                onSubmit={handleUpdateLocation}
-              />
-            </View>
-          )}
+          <Loading
+            loading={loading}
+            error={error}
+            location={location}
+            temperature={temperature}
+            weather={weather}
+          />
+          <SearchInput
+            placeholder="Search any city"
+            onSubmit={city => handleUpdateLocation(city)}
+          />
         </View>
       </ImageBackground>
     </KeyboardAvoidingView>
